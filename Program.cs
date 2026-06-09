@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using App3A.HolaMundo;
+using App3A.Cafeteria;
 
 namespace App3A
 {
@@ -17,7 +18,7 @@ namespace App3A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run( new frmCalculadora() );
+            Application.Run( new frmCafeteria() );
         }
     }
 }
