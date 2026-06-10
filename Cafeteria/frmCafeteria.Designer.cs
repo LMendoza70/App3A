@@ -29,19 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rdbCaliente = new System.Windows.Forms.RadioButton();
-            this.rdbFrio = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbTamano = new System.Windows.Forms.ComboBox();
-            this.lblExtra = new System.Windows.Forms.Label();
-            this.txtExtra = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtExtra = new System.Windows.Forms.TextBox();
+            this.lblExtra = new System.Windows.Forms.Label();
+            this.cmbTamano = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rdbFrio = new System.Windows.Forms.RadioButton();
+            this.rdbCaliente = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lsbBebidas = new System.Windows.Forms.ListBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.lblCantidad = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -65,71 +69,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "REGISTRO DE BEBIDAS";
             // 
-            // rdbCaliente
+            // btnAgregar
             // 
-            this.rdbCaliente.AutoSize = true;
-            this.rdbCaliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbCaliente.Location = new System.Drawing.Point(6, 55);
-            this.rdbCaliente.Name = "rdbCaliente";
-            this.rdbCaliente.Size = new System.Drawing.Size(183, 24);
-            this.rdbCaliente.TabIndex = 0;
-            this.rdbCaliente.TabStop = true;
-            this.rdbCaliente.Text = "Bebidas Calientes";
-            this.rdbCaliente.UseVisualStyleBackColor = true;
-            this.rdbCaliente.CheckedChanged += new System.EventHandler(this.rdbCaliente_CheckedChanged);
+            this.btnAgregar.Location = new System.Drawing.Point(118, 486);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(131, 59);
+            this.btnAgregar.TabIndex = 10;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // rdbFrio
+            // txtExtra
             // 
-            this.rdbFrio.AutoSize = true;
-            this.rdbFrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rdbFrio.Location = new System.Drawing.Point(224, 55);
-            this.rdbFrio.Name = "rdbFrio";
-            this.rdbFrio.Size = new System.Drawing.Size(147, 24);
-            this.rdbFrio.TabIndex = 1;
-            this.rdbFrio.TabStop = true;
-            this.rdbFrio.Text = "Bebidas Frias";
-            this.rdbFrio.UseVisualStyleBackColor = true;
+            this.txtExtra.Location = new System.Drawing.Point(15, 408);
+            this.txtExtra.Name = "txtExtra";
+            this.txtExtra.Size = new System.Drawing.Size(360, 34);
+            this.txtExtra.TabIndex = 9;
             // 
-            // label1
+            // lblExtra
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 104);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(11, 146);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(360, 34);
-            this.txtNombre.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 202);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 29);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Precio";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(11, 234);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(360, 34);
-            this.txtPrecio.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 281);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 29);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Tamaño";
+            this.lblExtra.AutoSize = true;
+            this.lblExtra.Location = new System.Drawing.Point(10, 376);
+            this.lblExtra.Name = "lblExtra";
+            this.lblExtra.Size = new System.Drawing.Size(163, 29);
+            this.lblExtra.TabIndex = 8;
+            this.lblExtra.Text = "Temperatura";
             // 
             // cmbTamano
             // 
@@ -143,40 +107,112 @@
             this.cmbTamano.Size = new System.Drawing.Size(360, 37);
             this.cmbTamano.TabIndex = 7;
             // 
-            // lblExtra
+            // label3
             // 
-            this.lblExtra.AutoSize = true;
-            this.lblExtra.Location = new System.Drawing.Point(10, 376);
-            this.lblExtra.Name = "lblExtra";
-            this.lblExtra.Size = new System.Drawing.Size(163, 29);
-            this.lblExtra.TabIndex = 8;
-            this.lblExtra.Text = "Temperatura";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 281);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 29);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Tamaño";
             // 
-            // txtExtra
+            // txtPrecio
             // 
-            this.txtExtra.Location = new System.Drawing.Point(15, 408);
-            this.txtExtra.Name = "txtExtra";
-            this.txtExtra.Size = new System.Drawing.Size(360, 34);
-            this.txtExtra.TabIndex = 9;
+            this.txtPrecio.Location = new System.Drawing.Point(11, 234);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(360, 34);
+            this.txtPrecio.TabIndex = 5;
             // 
-            // btnAgregar
+            // label2
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(118, 486);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(131, 59);
-            this.btnAgregar.TabIndex = 10;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 202);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(89, 29);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Precio";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(11, 146);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(360, 34);
+            this.txtNombre.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 104);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nombre";
+            // 
+            // rdbFrio
+            // 
+            this.rdbFrio.AutoSize = true;
+            this.rdbFrio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbFrio.Location = new System.Drawing.Point(224, 55);
+            this.rdbFrio.Name = "rdbFrio";
+            this.rdbFrio.Size = new System.Drawing.Size(147, 24);
+            this.rdbFrio.TabIndex = 1;
+            this.rdbFrio.TabStop = true;
+            this.rdbFrio.Text = "Bebidas Frias";
+            this.rdbFrio.UseVisualStyleBackColor = true;
+            // 
+            // rdbCaliente
+            // 
+            this.rdbCaliente.AutoSize = true;
+            this.rdbCaliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rdbCaliente.Location = new System.Drawing.Point(6, 55);
+            this.rdbCaliente.Name = "rdbCaliente";
+            this.rdbCaliente.Size = new System.Drawing.Size(183, 24);
+            this.rdbCaliente.TabIndex = 0;
+            this.rdbCaliente.TabStop = true;
+            this.rdbCaliente.Text = "Bebidas Calientes";
+            this.rdbCaliente.UseVisualStyleBackColor = true;
+            this.rdbCaliente.CheckedChanged += new System.EventHandler(this.rdbCaliente_CheckedChanged);
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(428, 22);
+            this.groupBox2.Controls.Add(this.lblCantidad);
+            this.groupBox2.Controls.Add(this.lblDescripcion);
+            this.groupBox2.Controls.Add(this.lsbBebidas);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(428, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 598);
+            this.groupBox2.Size = new System.Drawing.Size(450, 608);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.groupBox2.Text = "Bebidas Registradas";
+            // 
+            // lsbBebidas
+            // 
+            this.lsbBebidas.FormattingEnabled = true;
+            this.lsbBebidas.ItemHeight = 29;
+            this.lsbBebidas.Location = new System.Drawing.Point(6, 59);
+            this.lsbBebidas.Name = "lsbBebidas";
+            this.lsbBebidas.Size = new System.Drawing.Size(438, 323);
+            this.lsbBebidas.TabIndex = 0;
+            this.lsbBebidas.SelectedIndexChanged += new System.EventHandler(this.lsbBebidas_SelectedIndexChanged);
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(6, 413);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(166, 29);
+            this.lblDescripcion.TabIndex = 1;
+            this.lblDescripcion.Text = "Descripcion: ";
+            // 
+            // lblCantidad
+            // 
+            this.lblCantidad.AutoSize = true;
+            this.lblCantidad.Location = new System.Drawing.Point(6, 501);
+            this.lblCantidad.Name = "lblCantidad";
+            this.lblCantidad.Size = new System.Drawing.Size(277, 29);
+            this.lblCantidad.TabIndex = 2;
+            this.lblCantidad.Text = "0 Bebidas Registradas";
             // 
             // frmCafeteria
             // 
@@ -192,6 +228,8 @@
             this.Text = "frmCafeteria";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -211,5 +249,8 @@
         private System.Windows.Forms.TextBox txtExtra;
         private System.Windows.Forms.Label lblExtra;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblCantidad;
+        private System.Windows.Forms.Label lblDescripcion;
+        private System.Windows.Forms.ListBox lsbBebidas;
     }
 }

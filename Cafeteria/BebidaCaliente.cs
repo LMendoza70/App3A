@@ -28,5 +28,10 @@ namespace Calificaciones.Cafeteria
             return "Preparando un : " + Nombre + " Caliente  de tamaño : " + Tamaño ;
         } 
 
+        public string Mensaje()
+        {
+            return Nombre+" Caliente";
+        }
+
     }
 }

@@ -50,7 +50,17 @@ namespace App3A.Cafeteria
                 bebidas.Add(new BebidaFria(nombre,tamano,precio,extra));
             }
 
-            MessageBox.Show("Bebida agregada Correctamente tienes "+bebidas.Count +" Bebidas registradas");
+            if (bebidas[bebidas.Count-1] is BebidaFria fria)
+            {
+                lsbBebidas.Items.Add(fria.Mensaje());
+            }else if (bebidas[bebidas.Count-1] is BebidaCaliente caliente)
+            {
+                lsbBebidas.Items.Add(caliente.Mensaje());
+            }
+
+            //lsbBebidas.Items.Add(bebidas[bebidas.Count-1].);
+
+            lblCantidad.Text = bebidas.Count + " Bebidas Registradas";
             Limpiarcomponentes();
         }
 
@@ -60,6 +70,11 @@ namespace App3A.Cafeteria
             txtPrecio.Clear();
             txtExtra.Clear();
             cmbTamano.SelectedIndex = -1;
+        }
+
+        private void lsbBebidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblDescripcion.Text = bebidas[lsbBebidas.SelectedIndex].Preparar();
         }
     }
 }
