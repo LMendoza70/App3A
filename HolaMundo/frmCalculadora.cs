@@ -27,17 +27,17 @@ namespace App3A.HolaMundo
 
         private void label1_MouseHover(object sender, EventArgs e)
         {
-            MessageBox.Show("Estas sobre el titulo");
+            //MessageBox.Show("Estas sobre el titulo");
         }
 
         private void txtValor1_Leave(object sender, EventArgs e)
         {
-            int contenido = txtValor1.Text.Length;
+            /*int contenido = txtValor1.Text.Length;
             if (contenido == 0)
             {
                 MessageBox.Show("Esta caja no puede estar vacia");
                 txtValor1.Focus();
-            }
+            }*/
         }
     }
 }

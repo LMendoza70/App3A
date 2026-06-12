@@ -18,7 +18,7 @@ namespace App3A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run( new frmCafeteria() );
+            Application.Run( new frmPrincipal() );
         }
     }
 }

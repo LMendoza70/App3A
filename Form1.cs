@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App3A.HolaMundo;
+using App3A.Cafeteria;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +12,42 @@ using System.Windows.Forms;
 
 namespace App3A
 {
-    public partial class Form1 : Form
+    public partial class frmPrincipal : Form
     {
-        public Form1()
+        public frmPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form calculadora = Application.OpenForms["frmCalculadora"];
+            CargaFormulario(calculadora);
+        }
+
+        private void cafeteriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form cafeteria = Application.OpenForms["frmCafeteria"];
+            CargaFormulario(cafeteria);
+           
+        }
+
+        private void CargaFormulario(Form formulario)
+        { 
+            if (formulario != null)
+            {
+                if (formulario.WindowState == FormWindowState.Minimized)
+                    formulario.WindowState = FormWindowState.Normal;
+                else
+                    formulario.Activate();
+            }
+            else
+            {
+                formulario = new frmCafeteria();
+                formulario.MdiParent = this;
+                formulario.FormClosed += (sen, eventargs) => formulario.Dispose();
+                formulario.Show();
+            }
         }
     }
 }
