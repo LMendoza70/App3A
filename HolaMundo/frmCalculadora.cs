@@ -22,7 +22,7 @@ namespace App3A.HolaMundo
             float valor1 = float.Parse(txtValor1.Text);
             float valor2 = float.Parse(txtValor2.Text);
             float resultado= valor1 + valor2;
-            lblResultado.Text = "El resultado de la suma es : "+ resultado;
+            lblResultado.Text = "El resultado de la suma e s : "+ resultado;
         }
 
         private void label1_MouseHover(object sender, EventArgs e)
