@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using App3A.HolaMundo;
 using App3A.Cafeteria;
+using App3A.Login;
 
 namespace App3A
 {
@@ -18,7 +19,7 @@ namespace App3A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run( new frmPrincipal() );
+            Application.Run( new frmLogin() );
         }
     }
 }
