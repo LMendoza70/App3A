@@ -18,8 +18,7 @@ namespace App3A.Login
         public frmLogin()
         {
             InitializeComponent();
-            DataConeccion coneccion = new DataConeccion();
-            MySqlConnection conn = coneccion.GetConeccion();
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -27,19 +26,63 @@ namespace App3A.Login
             string usuario = txtUser.Text.Trim();
             string contra = txtPassword.Text.Trim();
 
-            if(usuario=="luis" && contra == "mendoza")
+            //validamos si los campos estan llenos 
+            if (string.IsNullOrEmpty(usuario) || string.IsNullOrEmpty(contra))
             {
-                this.Hide();
-                principal = new frmPrincipal();
-                principal.Show();
-                
+                MessageBox.Show("Profavor ingresa el usurio y contraseña...");
             }
-            else
+
+            //conectamos con la base de datos 
+            DataConeccion coneccion = new DataConeccion();
+            MySqlConnection conn = coneccion.GetConeccion();
+
+            //validamos si la coneccion a base de datos fue exitosa 
+            if(conn==null)
             {
-                lblError.Text = "Credenciales incorrectas...";
-                lblError.Visible = true;
-                txtUser.Clear();
-                txtPassword.Clear();
+                MessageBox.Show("Lo siento la aplicacion no tiene acceso a datos...");
+                return;
+            }
+
+            try
+            {
+                //creamos la consulta 
+                string consulta = "SELECT * FROM tblusuarios WHERE nombreUsuario=@usuario";
+                //ejecutamos la consulta
+                MySqlCommand cmd = new MySqlCommand(consulta, conn);
+                cmd.Parameters.AddWithValue("@usuario", usuario);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                //verificamos que la consulta trajo resultados 
+                if (reader.Read())
+                {
+                    string pass = reader["PASSWORD"].ToString();
+                    string rol = reader["perfil"].ToString();
+
+                    if (contra == pass)
+                    {
+                        MessageBox.Show("Acceso correcto");
+                        conn.Close();
+                        this.Hide();
+                        frmPrincipal principal = new frmPrincipal(usuario,rol);
+                        principal.Show();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Las credenciales no coinciden.... ");
+                        return;
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Las credenciales no coinciden.... ");
+                    return;
+                }
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Error :"+ex.Message);
             }
         }
 

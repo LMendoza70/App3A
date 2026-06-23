@@ -14,9 +14,15 @@ namespace App3A
 {
     public partial class frmPrincipal : Form
     {
-        public frmPrincipal()
+        public frmPrincipal(string user, string rol)
         {
             InitializeComponent();
+            this.Text = this.Text + " - Usuario : "+user;
+            if (rol == "Alumno")
+            {
+                cafeteriaToolStripMenuItem.Visible=false;   
+            }
+
         }
 
         private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
